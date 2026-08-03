@@ -1,17 +1,9 @@
 import { useStringListStore } from "./useStringListStore";
+import { resetStringListStore } from "./testUtils";
 
 describe("useStringListStore", () => {
   beforeEach(() => {
-    const { getState, setState } = useStringListStore;
-    setState({
-      strings: [],
-      lastDeletedStrings: [],
-      addString: getState().addString,
-      toggleSelection: getState().toggleSelection,
-      removeSelectedStrings: getState().removeSelectedStrings,
-      removeString: getState().removeString,
-      restoreDeletedStrings: getState().restoreDeletedStrings,
-    });
+    resetStringListStore();
   });
 
   test("removes a single string by key", () => {

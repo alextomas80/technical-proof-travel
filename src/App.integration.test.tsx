@@ -2,10 +2,10 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import { beforeEach, describe, test } from "vitest";
 
 import App from "./App";
-import { useStringListStore } from "./store/useStringListStore";
+import { resetStringListStore } from "./store/testUtils";
 
 const resetStore = () => {
-  useStringListStore.setState({ strings: [], lastDeletedStrings: [] });
+  resetStringListStore();
   localStorage.clear();
 };
 
