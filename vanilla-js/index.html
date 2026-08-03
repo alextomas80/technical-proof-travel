@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Logitravel – Prueba técnica Vanilla JS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <section class="app">
+    <div class="app__container" data-testid="app-container">
+      <header class="info-block" data-testid="info-block">
+        <h1 class="info-block__title" data-testid="info-block-title">This is a technical proof</h1>
+        <p class="info-block__description" data-testid="info-block-description">
+          Lorem ipsum dolor sit amet consectetur adipiscing, elit mus primis nec inceptos. Lacinia habitasse arcu
+          molestie
+          maecenas cursus quam nunc, hendrerit posuere augue fames dictumst placerat porttitor, dis mi pharetra
+          vestibulum
+          venenatis phasellus.
+        </p>
+      </header>
+
+      <div id="list" class="list-items" role="listbox" aria-multiselectable="true" data-testid="list-items"></div>
+
+      <section class="controls">
+        <div class="controls__group">
+          <button id="restore-button" class="custom-button custom-button--outline" data-testid="restore-button"
+            disabled>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+              stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" focusable="false">
+              <path stroke="none" d="M0 0h24v24H0z" />
+              <path d="M19.933 13.041a8 8 0 1 1-9.925-8.788c3.899-1 7.935 1.007 9.425 4.747" />
+              <path d="M20 4v5h-5" />
+            </svg>
+          </button>
+          <button id="delete-button" class="custom-button custom-button--outline" data-testid="delete-button"
+            disabled>DELETE</button>
+        </div>
+        <button id="add-button" class="custom-button" data-testid="add-button">ADD</button>
+      </section>
+    </div>
+  </section>
+
+  <div id="modal-add" class="modal-add" data-testid="modal-add" hidden>
+    <div class="modal-add__content" role="dialog" aria-modal="true" aria-labelledby="modal-add-title">
+      <h2 class="modal-add__text" id="modal-add-title">Add item to list</h2>
+      <input id="modal-add-input" class="modal-add__input" type="text" name="modal-add-input"
+        placeholder="Type the text here..." autocomplete="off" />
+      <div class="modal-add__actions">
+        <button id="modal-confirm-button" class="custom-button" disabled>Add</button>
+        <button id="modal-cancel-button" class="custom-button custom-button--outline">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+
+</html>
