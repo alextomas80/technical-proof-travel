@@ -83,7 +83,7 @@ export const ModalAdd = ({ isOpen, onClose }: ModalAddProps) => {
   };
 
   return (
-    <div className="modal-add" data-testid="modal-add">
+    <div className="modal-add" data-testid="modal-add" onClick={handleClose}>
       <div
         className="modal-add__content"
         onClick={(e) => e.stopPropagation()}

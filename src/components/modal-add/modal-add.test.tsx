@@ -66,4 +66,18 @@ describe("ModalAdd Component", () => {
     fireEvent.keyDown(input, { key: "Enter", code: "Enter" });
     expect(mockOnClose).not.toHaveBeenCalled();
   });
+
+  test("calls onClose when clicking outside the modal content (overlay)", () => {
+    render(<ModalAdd isOpen={true} onClose={mockOnClose} />);
+
+    fireEvent.click(screen.getByTestId("modal-add"));
+    expect(mockOnClose).toHaveBeenCalledTimes(1);
+  });
+
+  test("does not call onClose when clicking inside the modal content", () => {
+    render(<ModalAdd isOpen={true} onClose={mockOnClose} />);
+
+    fireEvent.click(screen.getByRole("dialog"));
+    expect(mockOnClose).not.toHaveBeenCalled();
+  });
 });
