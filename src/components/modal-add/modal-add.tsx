@@ -64,7 +64,7 @@ export const ModalAdd = ({ isOpen, onClose }: ModalAddProps) => {
 
   const handleAddClick = () => {
     const trimmedValue = inputValue.trim();
-    if (trimmedValue && trimmedValue.length > 0) {
+    if (trimmedValue) {
       addString(trimmedValue);
       setInputValue("");
       onClose();
