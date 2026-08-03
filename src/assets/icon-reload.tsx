@@ -1,7 +1,6 @@
 import type { SVGProps } from "react";
-import type { JSX } from "react/jsx-runtime";
 
-const ReloadIcon = (props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) => (
+const ReloadIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={24}
@@ -19,4 +18,4 @@ const ReloadIcon = (props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) =>
     <path d="M20 4v5h-5" />
   </svg>
 );
-export default ReloadIcon;
+export { ReloadIcon };
