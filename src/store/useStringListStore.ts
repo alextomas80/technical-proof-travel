@@ -70,6 +70,6 @@ export const useStringListStore = create<StringListState>()(
         }),
       },
     ),
-    { name: "StringListStore" },
+    { name: "StringListStore", enabled: import.meta.env.DEV },
   ),
 );
