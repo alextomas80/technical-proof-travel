@@ -14,9 +14,10 @@ export function render() {
     listEl.appendChild(row);
   });
 
-  const hasSelected = state.strings.some((item) => item.isSelected);
+  const selectedCount = state.strings.filter((item) => item.isSelected).length;
   const hasDeleted = state.lastDeletedStrings.length > 0;
 
-  deleteButton.disabled = !hasSelected;
+  deleteButton.disabled = selectedCount === 0;
+  deleteButton.textContent = selectedCount > 1 ? `DELETE (${selectedCount})` : "DELETE";
   restoreButton.disabled = !hasDeleted;
 }

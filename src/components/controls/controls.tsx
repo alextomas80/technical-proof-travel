@@ -15,8 +15,10 @@ export const Controls = () => {
     setIsModalOpen(!isModalOpen);
   };
 
-  const hasSelectedStrings = strings.some((item) => item.isSelected);
+  const selectedStringsCount = strings.filter((item) => item.isSelected).length;
+  const hasSelectedStrings = selectedStringsCount > 0;
   const hasDeletedStrings = lastDeletedStrings.length > 0;
+  const deleteLabel = selectedStringsCount > 1 ? `DELETE (${selectedStringsCount})` : "DELETE";
 
   return (
     <>
@@ -31,8 +33,9 @@ export const Controls = () => {
             variant="outline"
           />
           <CustomButton
+            data-testid="delete-button"
             disabled={!hasSelectedStrings}
-            label="DELETE"
+            label={deleteLabel}
             onClick={removeSelectedStrings}
             variant="outline"
           />

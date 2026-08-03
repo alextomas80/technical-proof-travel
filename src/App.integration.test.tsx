@@ -16,7 +16,7 @@ const addStringThroughModal = (text: string) => {
   fireEvent.click(screen.getByText("Add"));
 };
 
-const getDeleteButton = () => screen.getByText("DELETE") as HTMLButtonElement;
+const getDeleteButton = () => screen.getByTestId("delete-button") as HTMLButtonElement;
 const getRestoreButton = () => screen.getByTestId("restore-button") as HTMLButtonElement;
 
 describe("Complete flows of the application", () => {
@@ -40,8 +40,10 @@ describe("Complete flows of the application", () => {
     const listItem = screen.getByText("Buenos días");
     fireEvent.click(listItem);
 
-    const deleteButton = screen.getByText("DELETE") as HTMLButtonElement;
+    const deleteButton = getDeleteButton();
     expect(deleteButton.disabled).toBe(false);
+    expect(deleteButton).toHaveTextContent("DELETE");
+    expect(deleteButton).not.toHaveTextContent(/DELETE \(/);
     fireEvent.click(deleteButton);
 
     expect(screen.queryByText("Buenos días")).not.toBeInTheDocument();
@@ -64,6 +66,7 @@ describe("Complete flows of the application", () => {
 
     const deleteButton = getDeleteButton();
     expect(deleteButton.disabled).toBe(false);
+    expect(deleteButton).toHaveTextContent("DELETE (2)");
     fireEvent.click(deleteButton);
 
     expect(screen.queryByText("Elemento 1")).not.toBeInTheDocument();

@@ -32,7 +32,7 @@ describe("Controls Component", () => {
   test("DELETE button is disabled when no strings are selected", () => {
     render(<Controls />);
 
-    const deleteButton = screen.getByText("DELETE") as HTMLButtonElement;
+    const deleteButton = screen.getByTestId("delete-button") as HTMLButtonElement;
     expect(deleteButton.disabled).toBe(true);
   });
 
@@ -45,7 +45,7 @@ describe("Controls Component", () => {
     });
     render(<Controls />);
 
-    const deleteButton = screen.getByText("DELETE") as HTMLButtonElement;
+    const deleteButton = screen.getByTestId("delete-button") as HTMLButtonElement;
     expect(deleteButton.disabled).toBe(false);
   });
 
@@ -58,9 +58,40 @@ describe("Controls Component", () => {
     });
     render(<Controls />);
 
-    const deleteButton = screen.getByText("DELETE") as HTMLButtonElement;
+    const deleteButton = screen.getByTestId("delete-button") as HTMLButtonElement;
     fireEvent.click(deleteButton);
     expect(mockRemoveSelectedStrings).toHaveBeenCalledTimes(1);
+  });
+
+  test("DELETE button shows plain label when only one string is selected", () => {
+    (useStringListStore as unknown as Mock).mockReturnValue({
+      removeSelectedStrings: mockRemoveSelectedStrings,
+      restoreDeletedStrings: mockRestoreDeletedStrings,
+      strings: [{ key: "1", value: "Test", isSelected: true }],
+      lastDeletedStrings: [],
+    });
+    render(<Controls />);
+
+    const deleteButton = screen.getByTestId("delete-button") as HTMLButtonElement;
+    expect(deleteButton).toHaveTextContent("DELETE");
+    expect(deleteButton).not.toHaveTextContent(/DELETE \(/);
+  });
+
+  test("DELETE button shows selected count when multiple strings are selected", () => {
+    (useStringListStore as unknown as Mock).mockReturnValue({
+      removeSelectedStrings: mockRemoveSelectedStrings,
+      restoreDeletedStrings: mockRestoreDeletedStrings,
+      strings: [
+        { key: "1", value: "Test 1", isSelected: true },
+        { key: "2", value: "Test 2", isSelected: true },
+        { key: "3", value: "Test 3", isSelected: false },
+      ],
+      lastDeletedStrings: [],
+    });
+    render(<Controls />);
+
+    const deleteButton = screen.getByTestId("delete-button") as HTMLButtonElement;
+    expect(deleteButton).toHaveTextContent("DELETE (2)");
   });
 
   test("reload button is disabled when there are no deleted strings", () => {
