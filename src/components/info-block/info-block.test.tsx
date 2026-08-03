@@ -16,7 +16,7 @@ describe("InfoBlock Component", () => {
     const titleElement = screen.getByTestId("info-block-title");
     expect(titleElement).toBeInTheDocument();
 
-    expect(titleElement).toHaveTextContent(/This is a technical proof/i);
+    expect(titleElement).toHaveTextContent(/Strings Technical Proof/i);
   });
 
   test("should render a description", () => {
