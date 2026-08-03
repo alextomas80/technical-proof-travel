@@ -1,0 +1,85 @@
+@use "@/styles/colors";
+@use "@/styles/breakpoints";
+
+.modal-add {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(0 0 0 / 30%);
+  opacity: 1;
+  animation: fade-in 0.25s ease-out;
+
+  &__content {
+    box-sizing: border-box;
+    width: 700px;
+    height: 276px;
+    padding: 50px;
+    background-color: colors.$white;
+    border-radius: 20px;
+    box-shadow: 0 10px 24px rgb(0 0 0 / 10%);
+    opacity: 1;
+    animation: fade-in-scale 0.35s ease-out;
+
+    @include breakpoints.mobile {
+      width: 90vw;
+      height: auto;
+      max-height: 90vh;
+      padding: 24px;
+      overflow-y: auto;
+    }
+  }
+
+  &__text {
+    font-size: 18px;
+    font-weight: normal;
+    color: colors.$text-dark;
+  }
+
+  &__input {
+    width: 100%;
+    padding: 19px 21px;
+    margin: 20px 0 25px;
+    font-size: 18px;
+    background-color: colors.$gray-light;
+    border: 1px solid colors.$gray-border;
+    transition: border-color 0.3s ease;
+
+    &:focus {
+      outline: none;
+      border-color: colors.$primary;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in-scale {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

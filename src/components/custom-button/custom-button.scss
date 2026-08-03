@@ -1,0 +1,33 @@
+@use "@/styles/colors";
+@use "@/styles/breakpoints";
+
+.custom-button {
+  min-width: 138px;
+  height: 49px;
+  min-height: 49px;
+  padding: 0 30px;
+  color: colors.$white;
+  text-align: center;
+  text-transform: uppercase;
+  background-color: colors.$primary;
+  border: 1px solid colors.$primary;
+  border-radius: 50px;
+  opacity: 1;
+
+  @include breakpoints.mobile {
+    min-width: 110px;
+    padding: 0 20px;
+  }
+
+  &--outline {
+    min-width: initial;
+    color: colors.$primary;
+    background-color: colors.$white;
+    border: 1px solid colors.$primary;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.4;
+  }
+}

@@ -1,0 +1,6 @@
+onlyBuiltDependencies:
+  - '@parcel/watcher'
+minimumReleaseAgeExclude:
+  - globals@17.9.0
+allowBuilds:
+  '@parcel/watcher': true

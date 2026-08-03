@@ -1,0 +1,18 @@
+@use "@/styles/colors";
+@use "@/styles/breakpoints";
+
+.list-items {
+  flex: 1;
+  min-height: 227px;
+  padding: 13px 11px;
+  margin: 35px 0 30px;
+  overflow-y: auto;
+  background-color: colors.$gray-light;
+  border: 1px solid colors.$gray-border;
+
+  @include breakpoints.mobile {
+    flex: none;
+    padding: 8px;
+    margin: 20px 0;
+  }
+}

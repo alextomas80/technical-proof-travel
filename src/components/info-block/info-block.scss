@@ -1,0 +1,27 @@
+@use "@/styles/breakpoints";
+
+.info-block {
+  &__title {
+    margin-bottom: 13px;
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 44px;
+    text-align: center;
+
+    @include breakpoints.mobile {
+      margin-bottom: 8px;
+      font-size: 28px;
+      line-height: 32px;
+    }
+  }
+
+  &__description {
+    line-height: 26px;
+    text-align: center;
+
+    @include breakpoints.mobile {
+      font-size: 15px;
+      line-height: 22px;
+    }
+  }
+}

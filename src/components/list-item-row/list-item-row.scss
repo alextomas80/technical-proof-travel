@@ -1,0 +1,29 @@
+@use "@/styles/colors";
+@use "@/styles/breakpoints";
+
+.list-item-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  min-height: 40px;
+  padding: 9px 15px;
+  font-size: 18px;
+  transition: background 0.3s ease, color 0.3s ease;
+
+  @include breakpoints.mobile {
+    gap: 8px;
+    padding: 6px 10px;
+    font-size: 15px;
+  }
+
+  &--selected {
+    color: colors.$white;
+    background-color: colors.$primary;
+  }
+
+  &:hover:not(&--selected) {
+    color: colors.$white;
+    background-color: colors.$primary;
+    opacity: 0.7;
+  }
+}

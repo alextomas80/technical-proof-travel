@@ -1,0 +1,12 @@
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-between;
+
+  &__group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+}
