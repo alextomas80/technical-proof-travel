@@ -8,7 +8,10 @@
   min-height: 40px;
   padding: 9px 15px;
   font-size: 18px;
-  transition: background 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
 
   @include breakpoints.mobile {
     gap: 8px;
