@@ -3,7 +3,7 @@ import { useState } from "react";
 import { CustomButton } from "../custom-button";
 import { ModalAdd } from "../modal-add";
 import { useStringListStore } from "@/store/useStringListStore";
-import ReloadIcon from "@/assets/icon-reload";
+import { ReloadIcon } from "@/assets/icon-reload";
 
 import "./controls.scss";
 
